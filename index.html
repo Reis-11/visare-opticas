@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visare Ópticas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    </head>
+<body>
+
+    <header>
+        <div class="nav-card container"> 
+            <nav>
+                <a href="#home" class="logo">
+                    <img src="./imagens/logo-visare-home.png" alt="Logo Visare Ópticas" class="logo-img">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                    <li><a href="#feedbacks">Feedbacks</a></li>
+                    
+                    <li>
+                        <a href="https://www.instagram.com/visareopticas/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.facebook.com/739021542637730?ref=pl_edit_xav_ig_profile_page_web" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <button class="menu-mobile-btn" id="menu-mobile-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="home">
+        <div class="container">
+            <h1>BEM-VINDO À VISARE ÓPTICAS</h1> 
+            <p>Sempre comprometidos em entregar as melhores lentes e óculos, com uma vasta versatilidade de opções! Afinal, sua visão também é sinônimo de qualidade.</p>
+        </div>
+    </section>
+
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2>Nossos Produtos</h2>
+            <div class="produtos-grid">
+                
+                <div class="produto-card">
+                    <img src="./imagens/oculos-grau-feminino.jpg" alt="Óculos de Grau Feminino">
+                    <h3>Óculos de Grau Feminino</h3>
+                    <p class="descricao">Estilo atemporal, proteção UV400.</p>
+                    <p class="preco">R$ 299,90</p>
+                    <button class="btn">Comprar</button>
+                </div>
+                
+                <div class="produto-card">
+                    <img src="./imagens/oculos-grau-moderno.jpg" alt="Óculos de Grau Moderno">
+                    <h3>Óculos de Grau Moderno</h3>
+                    <p class="descricao">Design moderno, material flexível e resistente.</p>
+                    <p class="preco">R$ 350,00</p>
+                    <button class="btn">Comprar</button>
+                </div>
+                
+                <div class="produto-card">
+                    <img src="./imagens/oculos-sol-classico.jpg" alt="Óculos de Sol Clássico">
+                    <h3>Óculos de Sol Clássico</h3>
+                    <p class="descricao">Toque vintage com sofisticação e leveza.</p>
+                    <p class="preco">R$ 380,00</p>
+                    <button class="btn">Comprar</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="localizacao">
+    <div class="container">
+        <h2>Loja Visare</h2>
+        
+        <div class="localizacao-grid">
+            
+            <div class="localizacao-mapa">
+                
+                <div class="info-card">
+                  <h3>
+                          <i class="fas fa-map-marker-alt"></i> Visare Ópticas
+                    </h3>
+                  <p class="endereco">R. 13 Norte, 1 - Águas Claras, Brasília - DF</p>
+                   <p class="contato">Contato: 
+                     <a href="https://wa.me/+5561991937622" target="_blank" class="whatsapp-link">
+        (61) 99193-7622
+    </a>
+</p>
+                </div>
+                <div class="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.404742616153!2d-48.01951008796426!3d-15.835310882048674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bcd03376cc0cf%3A0x43775feb1a062475!2sVisare%20%C3%93pticas!5e0!3m2!1spt-BR!2sbr!4v1761397184980!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="localizacao-info-fotos">
+                
+                <div class="slideshow-wrapper">
+                    <div class="slideshow-container">
+                        <div class="slides"> 
+                            <div class="mySlides">
+                                <img src="./imagens/fachada_loja.jpg" alt="Fachada Loja">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="./imagens/interior_1.jpg" alt="Interior da Loja 1">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="./imagens/interior_2.jpg" alt="Interior da Loja 2">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="./imagens/interior_3.JPG" alt="Interior da Loja 3">
+                            </div>
+                        </div>
+                        
+                        </div>
+                    
+                    <a class="next-outside" onclick="plusSlides(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+    </div>
+</section>
+    <section id="feedbacks" class="feedbacks">
+        <div class="container">
+            <h2>O que nossos clientes dizem</h2>
+            
+            <div class="feedbacks-grid">
+                
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="./imagens/cliente-1.jpg" alt="Foto do Cliente 1" class="cliente-foto">
+                        <div class="cliente-info">
+                            <h4>Maria Silva</h4>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="depoimento-texto">"Atendimento impecável! Encontrei o óculos perfeito com um preço justo. A entrega foi super rápida e o produto é de excelente qualidade. Recomendo a todos!"</p>
+                </div>
+
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="./imagens/cliente-2.jpg" alt="Foto do Cliente 2" class="cliente-foto">
+                        <div class="cliente-info">
+                            <h4>João Costa</h4>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="depoimento-texto">"Comprei minha armação nova e amei o design. O site é fácil de navegar e o suporte tirou todas as minhas dúvidas sobre as lentes. 5 estrelas!"</p>
+                </div>
+                
+                <div class="depoimento-card">
+                    <div class="depoimento-header">
+                        <img src="./imagens/cliente-3.jpg" alt="Foto do Cliente 3" class="cliente-foto">
+                        <div class="cliente-info">
+                            <h4>Ana Souza</h4>
+                            <div class="estrelas">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="depoimento-texto">"A qualidade das lentes de sol superou minhas expectativas. A armação é resistente e muito leve. Excelente custo-benefício. Voltarei a comprar!"</p>
+                </div>
+                
+            </div>
+            
+            <a href="https://business.google.com/v/_/03112066559659587469/6c84/_/rev/?gclid=CjwKCAjw6vHHBhBwEiwAq4zvA_T-N9q8VkyDmgXp7VDdT-jlFEt70kJuMuzdoMP-YqKjgZIVkzPvjBoCWzIQAvD_BwE&caid=23102033462&agid=181898803170" target="_blank" class="btn btn-reviews">
+                Ver todas as avaliações no Google
+            </a>
+            
+        </div>
+    </section>
+
+<footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-col contato-info">
+                <h4>Contato</h4>
+                <p>
+                    <a href="https://wa.me/5561991937622" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i> (61) 99193-7622
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+556120175831" aria-label="Telefone Fixo">
+                        <i class="fas fa-phone"></i> (61) 2017-5831
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:visareopticas@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i> visareopticas@gmail.com
+                    </a>
+                </p>
+            </div>
+            
+            <div class="footer-col funcionamento-info">
+                <h4>Funcionamento</h4>
+                <p>
+                    <i class="fas fa-clock"></i> Segunda à Sábado
+                </p>
+                <p class="horario-detalhe">09:00 às 20:00</p>
+            </div>
+            
+            <div class="footer-col redes-sociais-info">
+                <h4>Redes Sociais</h4>
+                <a href="https://www.instagram.com/visareopticas/" target="_blank" aria-label="Instagram Visare">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com/739021542637730?ref=bookmarks" target="_blank" aria-label="Facebook Visare">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+            
+        </div>
+        
+        <div class="footer-copyright">
+             <div class="container">
+                <p>© 2025 Visare Ópticas. Todos os direitos reservados. | Desenvolvido por Visare</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/+5561991937622" target="_blank" class="whatsapp-flutuante" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>FALE CONOSCO</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,890 @@
+/* ========================================================= */
+/* 0. IMPORTAÇÃO DA FONTE BOSCA BOLD (PERSONALIZADA) */
+/* ========================================================= */
+/* ATENÇÃO: Corrigido o 'format' para 'truetype' e o nome do arquivo para '.ttf' */
+@font-face {
+    font-family: 'Bosca Bold Custom'; /* NOME INTERNO da fonte que você usará no CSS */
+    src: url('./fonts/BoscaBold.ttf') format('truetype'); /* Caminho para seu arquivo .ttf */
+    font-weight: 700; 
+    font-style: normal;
+    font-display: swap; 
+}
+
+
+/* ========================================================= */
+/* VARIÁVEIS E ESTILOS GLOBAIS */
+/* ========================================================= */
+:root {
+    /* COR PRIMÁRIA ATUALIZADA (Terracota/Marrom) */
+    --cor-primaria: rgb(142, 72, 38); 
+    --cor-secundaria: #6c757d; /* Cinza secundário */
+    --cor-branca: #ffffff;
+    --cor-preta: #343a40;
+    --cor-fundo-claro: #f8f9fa; /* Fundo de seção */
+}
+
+/* Base Reset e Tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* Fonte padrão */
+    line-height: 1.6;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-preta);
+    /* REMOVIDO: scroll-behavior: smooth; */
+}
+
+/* ========================================================= */
+/* LAYOUT E CONTAINERS FLUTUANTES (DESKTOP PADRÃO) */
+/* ========================================================= */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Padding lateral padrão (desktop) */
+    padding: 0 20px; 
+}
+
+/* ========================================================= */
+/* HEADER E NAVEGAÇÃO (CARD FLUTUANTE) (DESKTOP) */
+/* ========================================================= */
+
+header {
+    background-color: transparent; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    /* Padding superior para descolar do topo (Desktop e Mobile) */
+    padding: 15px 0 0 0; 
+}
+
+.nav-card {
+    background-color: var(--cor-branca);
+    padding: 8px 40px; 
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(142, 73, 38, 0.221);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px; 
+    vertical-align: middle;
+}
+
+/* MENU COMPLETO (DESKTOP) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px; 
+    align-items: center; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cor-preta);
+    font-weight: 500;
+    transition: color 0.3s;
+    display: flex; 
+    align-items: center;
+}
+
+.nav-links a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Estilo para links de ícones sociais */
+.nav-links .fab, .nav-links .fas {
+    font-size: 1.5rem;
+    color: var(--cor-preta);
+    transition: color 0.3s;
+}
+
+.nav-links .fab:hover {
+    color: var(--cor-primaria);
+}
+
+.menu-mobile-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--cor-preta);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* ========================================================= */
+/* HOME SECTION */
+/* ========================================================= */
+.home {
+    /* Use a imagem de fundo que você está usando */
+background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/imagens/home-oculos.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: var(--cor-branca);
+    display: flex; 
+    align-items: center; 
+    padding-top: 0;
+}
+
+.home .container {
+    text-align: left;
+    max-width: 800px; 
+    margin: 0;
+    margin-left: 10%;
+    padding: 0 20px;
+}
+
+.home h1 {
+    /* CORREÇÃO DA FONTE: Restaurando a fonte personalizada */
+    font-family: 'Bosca Bold Custom', sans-serif;
+    font-size: 4rem; 
+    margin-bottom: 1rem; 
+}
+
+.home p {
+    font-size: 1.6rem; 
+    margin-bottom: 0; 
+}
+
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* Estilo padrão para H2 das seções (ex: Produtos, Feedbacks) */
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--cor-preta);
+    font-family: sans-serif; 
+}
+
+
+/* ========================================================= */
+/* PRODUTOS SECTION - ESTILIZAÇÃO APRIMORADA */
+/* ========================================================= */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.produto-card {
+    background-color: var(--cor-branca);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.379); 
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
+}
+
+.produto-card img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    margin-bottom: 15px;
+}
+
+.produto-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--cor-preta);
+}
+
+.produto-card .descricao {
+    font-size: 0.95rem;
+    color: var(--cor-secundaria);
+    min-height: 40px; 
+    margin-bottom: 10px;
+}
+
+.produto-card .preco {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+
+/* Estilos de botão base (para links e botões) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    /* Tonalidade mais escura da cor primária */
+    background-color: rgb(110, 56, 30); 
+}
+
+.produto-card .btn {
+    width: 100%; 
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================================= */
+/* LOCALIZAÇÃO SECTION (Versão Otimizada para Altura Total) */
+/* ========================================================= */
+.localizacao {
+    /* Padding vertical ajustado */
+    padding: 40px 0; 
+    background-color: var(--cor-branca); 
+    /* Garante que a seção seja bem alta no desktop */
+    min-height: 80vh; 
+}
+
+/* Título da Seção - Compactação */
+.localizacao h2 {
+    font-family: sans-serif;
+    font-size: 3rem; 
+    color: var(--cor-preta); 
+    font-weight: 700; 
+    margin-bottom: 50px; 
+    line-height: 1; 
+}
+
+
+/* Container de Grid principal para as 2 colunas */
+.localizacao-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin-top: 15px; 
+    text-align: left;
+    /* Garante que o grid ocupe o máximo da altura da seção */
+    height: calc(100% - 75px); 
+    align-items: stretch;
+}
+
+/* --------------------------------------------------------- */
+/* Coluna 1: INFORMAÇÕES + MAPA (Agora juntos) */
+/* --------------------------------------------------------- */
+.localizacao-mapa {
+    /* Mantenha o flex-direction column para empilhar o card e o mapa */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adiciona espaço entre o card e o mapa */
+    height: 100%; 
+}
+
+/* Card de Informações (Texto) */
+.info-card {
+    background-color: var(--cor-fundo-claro);
+    padding: 15px; 
+    border-radius: 8px;
+    /* NOVO: Sombra mais pronunciada e escura */
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    /* Garante que o card de texto use APENAS o espaço que precisa */
+    flex-shrink: 0; 
+}
+
+/* Título do Card de Informações (Loja Visare) */
+.info-card h3 {
+    font-size: 1.5rem; 
+    color: var(--cor-preta); 
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    font-weight: 700;
+    font-family: sans-serif; 
+    line-height: 1.2; 
+}
+
+/* Ícone de Localização */
+.info-card h3 .fas {
+    color: var(--cor-primaria); 
+    font-size: 1.3rem; 
+}
+
+.info-card .endereco {
+    font-size: 1.1rem; 
+    color: var(--cor-preta);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Contato */
+.info-card .contato {
+    font-size: 1.1rem; 
+    color: var(--cor-preta); 
+    margin-bottom: 0;
+}
+
+.info-card .whatsapp-link {
+    color: var(--cor-primaria); 
+    font-weight: 700;
+    text-decoration: none; 
+    transition: color 0.3s;
+}
+
+.info-card .whatsapp-link:hover {
+    color: rgb(110, 56, 30); 
+}
+
+.mapa-container {
+    width: 100%;
+    /* Altura 100% do espaço restante da coluna (após o título) */
+    height: 100%; 
+    /* Aumenta a altura mínima para forçar a visibilidade do mapa */
+    min-height: 400px; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    /* NOVO: Sombra mais pronunciada e escura */
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    flex-grow: 1; /* Faz o mapa ocupar todo o espaço vertical restante */
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none; 
+}
+
+
+/* --------------------------------------------------------- */
+/* Coluna 2: FOTOS (Agora só Carrossel) */
+/* --------------------------------------------------------- */
+.localizacao-info-fotos {
+    /* Container Flexbox */
+    display: flex;
+    flex-direction: column;
+    /* Removido o gap, pois agora só há um item (o carrossel) */
+    gap: 0; 
+    height: 100%; /* Garante que ocupe 100% da altura do grid */
+}
+
+
+/* --------------------------------------------------------- */
+/* SLIDESHOW DE FOTOS - AJUSTE PARA PROPORÇÃO */
+/* --------------------------------------------------------- */
+
+.slideshow-wrapper {
+    position: relative;
+    /* Faz o carrossel Ocupar TODO o espaço que sobrar na coluna */
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+    
+    /* Altura Máxima no Desktop - AJUSTE FINO AQUI */
+    max-height: 550px; 
+}
+
+.slideshow-container {
+    width: 100%;
+    /* Altura 100% da área do wrapper */
+    height: 100%; 
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; 
+    /* NOVO: Sombra mais pronunciada e escura, correspondente aos outros elementos */
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    flex-grow: 1;
+    min-height: 250px; 
+}
+
+/* Container flexível para os slides */
+.slideshow-container .slides {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    height: 100%;
+    width: 100%; 
+}
+
+/* Cada slide individual */
+.mySlides {
+    flex: 0 0 100%; 
+    height: 100%; 
+    position: relative;
+    /* Fundo da seção (branco) */
+    background-color: var(--cor-branca); 
+}
+
+/* Imagem dentro do slide */
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 0;
+}
+
+/* Botão de Avançar (Fora do carrossel) */
+.next-outside {
+    position: absolute; 
+    right: 10px; 
+    z-index: 10;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: var(--cor-preta); 
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 40px;
+    background-color: rgba(255, 255, 255, 0.85); 
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, color 0.3s;
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.next-outside:hover {
+    background-color: var(--cor-primaria); 
+    color: var(--cor-branca);
+}
+
+
+/* ========================================================= */
+/* FEEDBACKS / TESTEMUNHOS SECTION */
+/* ========================================================= */
+.feedbacks {
+    background-color: var(--cor-fundo-claro);
+    padding: 60px 0;
+}
+
+.feedbacks-grid {
+    display: grid;
+    /* 3 colunas no desktop, com ajuste responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.depoimento-card {
+    background-color: var(--cor-branca);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.379);
+    text-align: left;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.depoimento-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cliente-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--cor-primaria); 
+}
+
+.cliente-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--cor-preta);
+}
+
+.estrelas {
+    color: #ffc107; 
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+.depoimento-texto {
+    font-style: italic;
+    color: var(--cor-secundaria);
+    margin-top: 5px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.btn-reviews {
+    margin-top: 20px;
+    background-color: #4285f4; 
+}
+
+.btn-reviews:hover {
+    background-color: #357ae8;
+}
+
+
+/* ========================================================= */
+/* FOOTER */
+/* ========================================================= */
+footer {
+    /* O background já é preto da variável --cor-preta */
+    background-color: var(--cor-preta); 
+    color: var(--cor-branca);
+    /* Mantém o padding vertical, mas vamos usar um pouco mais de espaço */
+    padding: 30px 0 0 0; 
+    font-size: 0.95rem;
+    text-align: center; /* Centraliza todo o texto por padrão */
+}
+
+/* NOVO: Grid para as 3 colunas */
+.footer-grid {
+    display: grid;
+    /* 3 colunas com largura igual */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+}
+
+.footer-col {
+    text-align: center;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    color: var(--cor-branca);
+    margin-bottom: 15px;
+    font-weight: 600;
+    /* Adiciona uma linha de destaque sutil abaixo do título */
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 30px;
+    background-color: var(--cor-primaria);
+    border-radius: 2px;
+}
+
+.footer-col p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Links em geral (Contato e Redes Sociais) */
+.footer-col a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    display: block; /* Garante que cada link ocupe sua própria linha */
+    margin-bottom: 8px;
+    transition: color 0.3s;
+    /* Alinha o ícone e o texto */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza no eixo horizontal */
+}
+
+.footer-col a i {
+    margin-right: 8px;
+    color: var(--cor-primaria);
+    font-size: 1rem;
+}
+
+.footer-col a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Estilo para o horário do funcionamento para destaque */
+.footer-col .horario-detalhe {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* Seção de Direitos Autorais (Sub-rodapé) */
+.footer-copyright {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* Responsividade para o Rodapé */
+@media (max-width: 768px) {
+    
+    /* Quebra o grid para 1 coluna */
+    .footer-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+        padding: 0 0 20px 0;
+    }
+    
+    .footer-col {
+        /* Garante centralização completa no mobile */
+        text-align: center;
+    }
+    
+    /* Centraliza o sublinhado do título no mobile */
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Centraliza os links com ícones no mobile */
+    .footer-col a {
+        justify-content: center; 
+    }
+}
+
+/* ========================================================= */
+/* BOTÃO FLUTUANTE DO WHATSAPP */
+/* ========================================================= */
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 10px rgba(142, 73, 38, 0.588); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
+  100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+}
+
+.whatsapp-flutuante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #25D366; 
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 12px 22px; 
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: pulse 2s infinite ease-in-out;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-flutuante:hover {
+    animation-play-state: paused;
+    background-color: #1ebe5b; 
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-flutuante .fab {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.whatsapp-flutuante span {
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+
+/* ========================================================= */
+/* MEDIA QUERIES (Responsividade: Mobile/Zoom) */
+/* ========================================================= */
+
+@media (max-width: 992px) {
+    
+    /* Remove a altura fixa no mobile para não cortar o conteúdo */
+    .localizacao {
+        min-height: auto; 
+    }
+    
+    /* Quebra o layout de 2 colunas para 1 no mobile */
+    .localizacao-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        height: auto;
+    }
+    
+    /* Ajusta a altura do mapa em tablets/mobile */
+    .mapa-container {
+        min-height: 300px; 
+        height: 350px; 
+    }
+    
+    .localizacao-info-fotos {
+        height: auto;
+    }
+    
+    .slideshow-wrapper {
+        flex-grow: 0;
+        height: 250px; 
+        /* Limita a altura máxima no mobile também, mas mais baixa */
+        max-height: 300px; 
+    }
+    
+    .slideshow-container {
+        min-height: 200px;
+        height: 100%;
+    }
+
+    /* Ajusta a posição da seta para não sair da tela no mobile */
+    .next-outside {
+        right: 10px; 
+        background-color: rgba(255, 255, 255, 0.8);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .container {
+        padding: 0 30px; 
+    }
+    
+    header {
+        padding: 15px 0 0 0; 
+        margin: 0;
+        height: auto;
+        background-color: transparent; 
+    }
+    
+    .nav-card {
+        padding: 8px 20px; 
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); 
+        margin: 0; 
+        border-radius: 10px; 
+        width: 100%; 
+        align-items: center; 
+    }
+
+    .logo-img {
+        height: 50px;
+        vertical-align: middle;
+        line-height: normal; 
+    }
+    
+    /* ========================================================= */
+    /* MENU MOBILE - ANIMAÇÃO DE ROLAGEM */
+    /* ========================================================= */
+    
+    .nav-links {
+        position: absolute;
+        top: 81px; 
+        left: 30px; 
+        width: calc(100% - 60px); 
+        background-color: var(--cor-branca);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        border-radius: 0 0 10px 10px; 
+        z-index: 998; 
+        
+        /* Chave da Animação: Inicia com altura zero */
+        max-height: 0; 
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden; /* Esconde o conteúdo e o scroll inicial */
+        
+        transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; 
+        
+        /* Configurações de layout que são herdadas ao abrir */
+        display: flex; 
+        flex-direction: column; 
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .nav-links.active {
+        /* Estado Aberto: Altura suficiente e padding */
+        max-height: 500px; /* Um valor grande o suficiente para o conteúdo */
+        padding-top: 10px;
+        padding-bottom: 20px;
+        overflow: auto; /* Permite scroll se o conteúdo for maior que 500px */
+    }
+    
+    /* Estilos dos itens da lista dentro do menu */
+    .nav-links li {
+        padding: 15px 20px; 
+        border-bottom: 1px solid #eee;
+        line-height: normal;
+        width: 100%;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        color: var(--cor-preta);
+    }
+
+    .menu-mobile-btn {
+        display: block; 
+        line-height: normal;
+    }
+    
+    @media (max-width: 576px) {
+        .produtos-grid, .feedbacks-grid {
+            grid-template-columns: 1fr; 
+            gap: 20px;
+        }
+    }
+    
+    .home .container {
+        margin-left: 5%; 
+        max-width: 90%; 
+    }
+    
+    .home h1 {
+        font-size: 2.2rem; 
+    }
+    
+    .home p {
+        font-size: 1.2rem; 
+    }
+    
+    footer .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center; 
+    }
+    
+    .whatsapp-flutuante {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px; 
+    }
+
+    .whatsapp-flutuante span {
+        font-size: 0.9rem; 
+    }
+    
+    .whatsapp-flutuante .fab {
+        font-size: 1.6rem; 
+    }
+}
