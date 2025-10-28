@@ -67,7 +67,7 @@ header {
     background-color: var(--cor-branca);
     padding: 8px 40px; 
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(142, 73, 38, 0.221);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -134,7 +134,7 @@ header nav {
 /* ========================================================= */
 .home {
     /* Use a imagem de fundo que você está usando */
-background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./imagens/home-oculos.png') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./imagens/home-oculos.png') no-repeat center center;
     background-size: cover;
     height: 100vh;
     color: var(--cor-branca);
@@ -191,7 +191,7 @@ section h2 {
     background-color: var(--cor-branca);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.379); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
@@ -264,8 +264,7 @@ section h2 {
     /* Padding vertical ajustado */
     padding: 40px 0; 
     background-color: var(--cor-branca); 
-    /* Garante que a seção seja bem alta no desktop */
-    min-height: 80vh; 
+    
 }
 
 /* Título da Seção - Compactação */
@@ -308,7 +307,7 @@ section h2 {
     padding: 15px; 
     border-radius: 8px;
     /* NOVO: Sombra mais pronunciada e escura */
-    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); 
     /* Garante que o card de texto use APENAS o espaço que precisa */
     flex-shrink: 0; 
 }
@@ -347,14 +346,16 @@ section h2 {
 }
 
 .info-card .whatsapp-link {
-    color: var(--cor-primaria); 
+    /* MANTIDO: Cor que você havia ajustado no código anterior */
+    color: rgb(118, 76, 146); 
     font-weight: 700;
     text-decoration: none; 
     transition: color 0.3s;
 }
 
 .info-card .whatsapp-link:hover {
-    color: rgb(110, 56, 30); 
+    /* MANTIDO: Cor que você havia ajustado no código anterior */
+    color: rgb(98, 0, 255); 
 }
 
 .mapa-container {
@@ -362,11 +363,11 @@ section h2 {
     /* Altura 100% do espaço restante da coluna (após o título) */
     height: 100%; 
     /* Aumenta a altura mínima para forçar a visibilidade do mapa */
-    min-height: 400px; 
+    min-height: 200px; 
     overflow: hidden; 
     border-radius: 8px; 
     /* NOVO: Sombra mais pronunciada e escura */
-    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); 
     flex-grow: 1; /* Faz o mapa ocupar todo o espaço vertical restante */
 }
 
@@ -402,7 +403,7 @@ section h2 {
     align-items: center; 
     
     /* Altura Máxima no Desktop - AJUSTE FINO AQUI */
-    max-height: 550px; 
+    max-height: 400px; 
 }
 
 .slideshow-container {
@@ -413,9 +414,9 @@ section h2 {
     border-radius: 8px;
     overflow: hidden; 
     /* NOVO: Sombra mais pronunciada e escura, correspondente aos outros elementos */
-    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.379); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.389); 
     flex-grow: 1;
-    min-height: 250px; 
+    min-height: 100px; 
 }
 
 /* Container flexível para os slides */
@@ -470,27 +471,52 @@ section h2 {
 
 
 /* ========================================================= */
-/* FEEDBACKS / TESTEMUNHOS SECTION */
+/* FEEDBACKS / TESTEMUNHOS SECTION (AJUSTADO PARA CARROSSEL DE 4 ITENS) */
 /* ========================================================= */
 .feedbacks {
     background-color: var(--cor-fundo-claro);
     padding: 60px 0;
 }
+/* INÍCIO DO BLOCO COMENTADO: O WIDGET DA ELFSIGHT VAI CUIDAR 
+    DO CARROSSEL E ESTILIZAÇÃO DOS FEEDBACKS REAIS, 
+    PORTANTO, COMENTAMOS O CÓDIGO MANUAL PARA EVITAR CONFLITOS. 
+*/
+/* Container para a área de feedbacks para dar o efeito de máscara (Viewport) */
+.feedbacks-slideshow {
+    overflow: hidden; /* Essencial para o carrossel */ 
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+    border-radius: 10px;
+    max-width: 1200px; /* Limita a largura do container visível */
+    /* [DESKTOP] Garante que a altura seja o máximo do card mais alto (alinhamento stretch) */
+    height: auto; 
+}
 
+/* O container que será movido (Agora é Flexbox para linha única e carrossel) */
 .feedbacks-grid {
-    display: grid;
-    /* 3 colunas no desktop, com ajuste responsivo */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    display: flex; /* NOVO: Usa Flexbox para colocar em linha única */
+    flex-wrap: nowrap; /* Garante que os cards fiquem em uma linha */
+    width: fit-content; /* Permite que o container se estenda para a largura total de todos os cards */
     gap: 30px;
     margin-top: 40px;
     margin-bottom: 40px;
+    transition: transform 0.5s ease-in-out; 
+    align-items: stretch; /* Garante que todos os cards tenham a mesma altura (Desktop) */
+    padding: 0 20px; /* Padding interno para que o gap não corte os itens das bordas no desktop */
+    height: auto;
 }
 
+
 .depoimento-card {
+    /* PADRÃO DESKTOP (4 ITENS) */
+    /* Cada card ocupa 25% da área visível - ajuste para o gap de 30px */
+    flex: 0 0 calc(25% - 22.5px); 
+    min-width: calc(25% - 22.5px); 
+
     background-color: var(--cor-branca);
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.379);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     text-align: left;
     height: 100%; 
     display: flex;
@@ -531,6 +557,8 @@ section h2 {
     font-size: 0.95rem;
     line-height: 1.5;
 }
+/* FIM DO BLOCO COMENTADO */
+*/
 
 .btn-reviews {
     margin-top: 20px;
@@ -540,7 +568,6 @@ section h2 {
 .btn-reviews:hover {
     background-color: #357ae8;
 }
-
 
 /* ========================================================= */
 /* FOOTER */
@@ -671,9 +698,9 @@ footer {
 /* ========================================================= */
 
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 4px 10px rgba(142, 73, 38, 0.588); }
-  50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
-  100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+  0% { transform: scale(1); box-shadow: 0 4px 10px rgba(142, 72, 38, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(37, 211, 102, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 4px 10px rgba(142, 72, 38, 0.4); }
 }
 
 .whatsapp-flutuante {
@@ -686,7 +713,7 @@ footer {
     text-decoration: none;
     padding: 12px 22px; 
     border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgb(142, 72, 38, 0.5);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -698,7 +725,7 @@ footer {
     animation-play-state: paused;
     background-color: #1ebe5b; 
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.8);
 }
 
 .whatsapp-flutuante .fab {
@@ -760,6 +787,39 @@ footer {
         top: 50%;
         transform: translateY(-50%);
     }
+
+    /* --------------------------------------------------------- */
+    /* MODO CARROSSEL PARA FEEDBACKS (MOBILE: 1 ITEM VISÍVEL) */
+    /* --------------------------------------------------------- */
+    
+    /* [CORREÇÃO APLICADA] Remove a sombra para evitar que o carrossel pareça 'fixo' no mobile */
+    /* Estilos abaixo devem ser comentados junto com o bloco principal. */
+    /*
+    .feedbacks-slideshow {
+        overflow: hidden; 
+        margin: 0 auto;
+        box-shadow: none; 
+        border-radius: 0;
+    }
+    
+    .feedbacks-grid {
+        display: flex; 
+        margin-top: 0; 
+        margin-bottom: 0;
+        gap: 20px; 
+        padding: 0 10px; 
+        flex-wrap: nowrap;
+        
+        align-items: flex-start; 
+        height: auto; 
+    }
+
+    .depoimento-card {
+        flex: 0 0 calc(100% - 20px); 
+        min-width: calc(100% - 20px); 
+        height: auto; 
+    }
+    */
 }
 
 @media (max-width: 768px) {
@@ -849,7 +909,8 @@ footer {
     }
     
     @media (max-width: 576px) {
-        .produtos-grid, .feedbacks-grid {
+        /* Mantido apenas para .produtos-grid, que usa grid. */
+        .produtos-grid {
             grid-template-columns: 1fr; 
             gap: 20px;
         }
